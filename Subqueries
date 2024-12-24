@@ -7,9 +7,11 @@ WHERE temperature > (
     WHERE w1.recordDate = DATE_ADD(w.recordDate, INTERVAL -1 DAY)
 );
 
------------Employees earning more than their managers  (181)
+-----------Employees earning more than their managers  (181)  
 select e.name  as Employee 
 from Employee  as e 
 where e.salary > (select e1.salary from Employee as e1 where e.managerId = e1.id)
+
+####in this  outer query is employee info and inner  query is  manager info
 
 ------------
