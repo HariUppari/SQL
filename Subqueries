@@ -14,4 +14,8 @@ where e.salary > (select e1.salary from Employee as e1 where e.managerId = e1.id
 
 ####in this  outer query is employee info and inner  query is  manager info
 
-------------
+------------Second Highest Salary (176)
+select distinct e.salary as SecondHighestSalary
+from Employee as e
+where (select count(distinct salary) from Employee as e1 where e1.salary >= e.salary) = 2
+
