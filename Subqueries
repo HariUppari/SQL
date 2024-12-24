@@ -1,0 +1,8 @@
+#############Rising Temperature 
+SELECT id 
+FROM Weather AS w
+WHERE temperature > (
+    SELECT w1.temperature 
+    FROM Weather AS w1 
+    WHERE w1.recordDate = DATE_ADD(w.recordDate, INTERVAL -1 DAY)
+);
